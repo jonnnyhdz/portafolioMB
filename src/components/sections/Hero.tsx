@@ -12,28 +12,25 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-violet-100 via-white to-fuchsia-100 px-6 pt-28 md:pt-32"
+      className="relative min-h-screen flex items-center overflow-hidden bg-linear-to-br from-violet-100 via-white to-fuchsia-100 px-6 pt-28 md:pt-32"
     >
       {/* Blobs suaves */}
       <div className="absolute top-20 left-10 w-48 h-48 bg-violet-400 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-40 right-20 w-64 h-64 bg-fuchsia-400 rounded-full blur-3xl opacity-30"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-
         {/* TEXTO */}
         <div className="text-center md:text-left">
-
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1]"
           >
-            <span className="block bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">
-              Estrategia y creatividad
-            </span>
-            <span className="block text-slate-900">
-              para marcas que quieren crecer.
+            <span className="block text-slate-900">Branding y contenido</span>
+
+            <span className="block bg-linear-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">
+              para marcas en crecimiento
             </span>
           </motion.h1>
 
@@ -41,9 +38,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9 }}
-            className="mt-6 text-lg text-slate-600 max-w-xl mx-auto md:mx-0"
+            className="mt-6 text-base sm:text-lg text-slate-600 max-w-lg mx-auto md:mx-0"
           >
-            Planificación digital, identidad visual y contenido ejecutado con intención.
+            Diseño, estrategia y comunicación visual pensada para generar
+            impacto real.
           </motion.p>
 
           <motion.div
@@ -56,7 +54,7 @@ export default function Hero() {
               href="#portafolio"
               className="relative group px-8 py-4 rounded-full font-semibold text-white overflow-hidden shadow-xl"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 transition-transform duration-500 group-hover:scale-110"></span>
+              <span className="absolute inset-0 bg-linear-to-r from-violet-600 to-fuchsia-500 transition-transform duration-500 group-hover:scale-110"></span>
               <span className="relative z-10">Ver Portafolio</span>
             </a>
 
@@ -70,8 +68,7 @@ export default function Hero() {
         </div>
 
         {/* COLLAGE GLASS PREMIUM */}
-        <div className="relative h-[480px] w-full flex items-center justify-center">
-
+        <div className="relative h-120 w-full flex items-center justify-center">
           {/* Elemento central */}
           <motion.div
             animate={{ y: [0, -12, 0] }}
@@ -127,17 +124,11 @@ export default function Hero() {
                           backdrop-blur-xl bg-white/30 border border-white/40
                           rounded-2xl shadow-xl px-5 py-4 w-48`}
             >
-              <div className={`text-2xl mb-2 ${item.color}`}>
-                {item.icon}
-              </div>
-              <p className="text-xs font-medium text-slate-700">
-                {item.text}
-              </p>
+              <div className={`text-2xl mb-2 ${item.color}`}>{item.icon}</div>
+              <p className="text-xs font-medium text-slate-700">{item.text}</p>
             </motion.div>
           ))}
-
         </div>
-
       </div>
 
       {/* Ondas */}
