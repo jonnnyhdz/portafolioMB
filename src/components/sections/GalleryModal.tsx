@@ -211,9 +211,24 @@ export default function GalleryModal({ isOpen, onClose, projects }: Props) {
 
               {/* ===== PROPUESTAS WEB ===== */}
               {activeCategory === "Propuestas Web" && (
-                <div className="flex flex-col lg:flex-row h-full gap-6">
-                  {/* Sidebar */}
-                  <div className="lg:w-72 space-y-3">
+                <div className="flex flex-col lg:flex-row gap-6 h-full">
+                  {/* ===== MOBILE: Selector tipo dropdown ===== */}
+                  <div className="lg:hidden">
+                    <select
+                      value={activePdf ?? webProposals[0].pdf}
+                      onChange={(e) => setActivePdf(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-slate-100 text-slate-700 text-sm"
+                    >
+                      {webProposals.map((proposal, index) => (
+                        <option key={index} value={proposal.pdf}>
+                          {proposal.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* ===== DESKTOP: Sidebar ===== */}
+                  <div className="hidden lg:flex lg:w-72 flex-col space-y-3">
                     {webProposals.map((proposal, index) => (
                       <button
                         key={index}
@@ -221,7 +236,7 @@ export default function GalleryModal({ isOpen, onClose, projects }: Props) {
                         className={`w-full text-left px-4 py-3 rounded-xl transition ${
                           activePdf === proposal.pdf
                             ? "bg-linear-to-r from-violet-600 to-fuchsia-500 text-white"
-                            : "bg-slate-100 text-slate-700"
+                            : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                         }`}
                       >
                         {proposal.title}
@@ -229,12 +244,14 @@ export default function GalleryModal({ isOpen, onClose, projects }: Props) {
                     ))}
                   </div>
 
-                  {/* Preview */}
-                  <div className="flex-1 h-[60vh] lg:h-full">
-                    <iframe
-                      src={`${activePdf ?? webProposals[0].pdf}#toolbar=1`}
-                      className="w-full h-full rounded-2xl shadow-xl"
-                    ></iframe>
+                  {/* ===== Preview PDF ===== */}
+                  <div className="flex-1">
+                    <div className="relative w-full aspect-[9/16] sm:aspect-[4/3] lg:aspect-auto lg:h-full">
+                      <iframe
+                        src={`${activePdf ?? webProposals[0].pdf}#toolbar=1`}
+                        className="absolute inset-0 w-full h-full rounded-2xl shadow-xl"
+                      ></iframe>
+                    </div>
                   </div>
                 </div>
               )}

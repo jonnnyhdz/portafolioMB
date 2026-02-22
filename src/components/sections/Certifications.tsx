@@ -40,14 +40,12 @@ export default function Certifications() {
       className="scroll-mt-24 py-32 px-6 bg-linear-to-b from-white to-violet-50"
     >
       <div className="max-w-6xl mx-auto text-center">
-
         <h2 className="text-4xl font-extrabold text-slate-900">
           Certificaciones & Reconocimientos
         </h2>
 
         {/* GRID */}
         <div className="mt-16 grid md:grid-cols-2 gap-12">
-
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
@@ -61,8 +59,10 @@ export default function Certifications() {
               {/* HEADER */}
               <div className="flex items-center justify-between px-6 py-4 bg-violet-50 border-b border-slate-100">
                 <div className="flex items-center gap-3 text-violet-600">
-                  <div className="w-8 h-8 flex items-center justify-center 
-                                  rounded-full bg-white shadow-sm">
+                  <div
+                    className="w-8 h-8 flex items-center justify-center 
+                                  rounded-full bg-white shadow-sm"
+                  >
                     {cert.icon}
                   </div>
                   <span className="text-xs font-medium uppercase tracking-wider text-slate-500">
@@ -71,20 +71,17 @@ export default function Certifications() {
                 </div>
               </div>
 
-              {/* MINI PREVIEW CONTROLADA */}
-              <div className="flex justify-center p-6 bg-slate-100">
-
-                <div className="relative w-57.5 h-35 bg-white 
-                                rounded-xl shadow-md overflow-hidden border border-slate-200">
-
+              {/* MINI PREVIEW RESPONSIVE */}
+              <div className="p-6 bg-slate-100">
+                <div
+                  className="relative w-full max-w-sm mx-auto aspect-[4/3] bg-white 
+                  rounded-xl shadow-md overflow-hidden border border-slate-200"
+                >
                   <iframe
                     src={`${cert.file}#toolbar=0&navpanes=0&scrollbar=0`}
-                    className="absolute top-0 left-0 w-57.5 h-80 
-                               scale-[0.7] origin-top pointer-events-none"
+                    className="absolute inset-0 w-full h-full pointer-events-none"
                   />
-
                 </div>
-
               </div>
 
               {/* TITLE */}
@@ -126,10 +123,7 @@ export default function Certifications() {
                 </button>
               </div>
 
-              <iframe
-                src={activePdf}
-                className="w-full h-full"
-              />
+              <iframe src={activePdf} className="w-full h-full" />
             </motion.div>
           </motion.div>
         )}
