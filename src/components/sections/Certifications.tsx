@@ -106,24 +106,56 @@ export default function Certifications() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
           >
             <motion.div
-              initial={{ scale: 0.95 }}
+              initial={{ scale: 0.96 }}
               animate={{ scale: 1 }}
-              exit={{ scale: 0.95 }}
-              className="relative bg-white w-full max-w-6xl h-[90vh] rounded-3xl shadow-2xl overflow-hidden"
+              exit={{ scale: 0.96 }}
+              className="relative bg-white w-full max-w-6xl 
+                   h-[85vh] sm:h-[90vh] 
+                   rounded-2xl sm:rounded-3xl 
+                   shadow-2xl overflow-hidden flex flex-col"
             >
+              {/* Header */}
               <div className="flex justify-between items-center px-6 py-4 border-b border-slate-200">
+                <h3 className="text-sm sm:text-base font-semibold text-slate-700">
+                  Documento
+                </h3>
+
                 <button
                   onClick={() => setActivePdf(null)}
                   className="text-slate-600 hover:text-violet-600 transition"
                 >
-                  <X size={26} />
+                  <X size={24} />
                 </button>
               </div>
 
-              <iframe src={activePdf} className="w-full h-full" />
+              {/* Desktop iframe */}
+              <div className="hidden sm:flex flex-1">
+                <iframe src={activePdf} className="w-full h-full" />
+              </div>
+
+              {/* Mobile botón abrir PDF */}
+              <div className="flex sm:hidden flex-1 items-center justify-center p-6 text-center">
+                <div>
+                  <p className="text-slate-600 text-sm mb-6">
+                    Para una mejor visualización, abre el documento en pantalla
+                    completa.
+                  </p>
+
+                  <a
+                    href={activePdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-3 rounded-full 
+                         bg-linear-to-r from-violet-600 to-fuchsia-500 
+                         text-white font-medium shadow-lg"
+                  >
+                    Abrir documento
+                  </a>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}

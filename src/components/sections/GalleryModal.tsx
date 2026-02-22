@@ -246,11 +246,33 @@ export default function GalleryModal({ isOpen, onClose, projects }: Props) {
 
                   {/* ===== Preview PDF ===== */}
                   <div className="flex-1">
-                    <div className="relative w-full aspect-[9/16] sm:aspect-[4/3] lg:aspect-auto lg:h-full">
+                    {/* ===== DESKTOP ===== */}
+                    <div className="hidden sm:block relative w-full aspect-[4/3] lg:aspect-auto lg:h-full">
                       <iframe
                         src={`${activePdf ?? webProposals[0].pdf}#toolbar=1`}
                         className="absolute inset-0 w-full h-full rounded-2xl shadow-xl"
-                      ></iframe>
+                      />
+                    </div>
+
+                    {/* ===== MOBILE ===== */}
+                    <div className="sm:hidden flex flex-col items-center justify-center h-full text-center px-6">
+                      <div className="w-16 h-[1px] bg-gradient-to-r from-violet-500 to-fuchsia-500 mb-6 opacity-60"></div>
+
+                      <p className="text-slate-600 text-sm mb-6">
+                        Para una mejor experiencia, abre la propuesta en
+                        pantalla completa.
+                      </p>
+
+                      <a
+                        href={activePdf ?? webProposals[0].pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 rounded-full 
+                 bg-linear-to-r from-violet-600 to-fuchsia-500 
+                 text-white font-medium shadow-lg"
+                      >
+                        Abrir propuesta
+                      </a>
                     </div>
                   </div>
                 </div>
