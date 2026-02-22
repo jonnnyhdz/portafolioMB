@@ -36,7 +36,7 @@ export default function Portfolio() {
   const total = projects.length;
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [galleryOpen, setGalleryOpen] = useState(false);
 
   // AutoPlay
@@ -114,14 +114,6 @@ export default function Portfolio() {
               let x = 0;
               let opacity = 0;
               let zIndex = 0;
-
-              // Desktop tamaños
-              let widthDesktop = 400;
-              let heightDesktop = 440;
-
-              // Mobile tamaños más pequeños
-              let widthMobile = 260;
-              let heightMobile = 320;
 
               if (position === 0) {
                 scale = 1;

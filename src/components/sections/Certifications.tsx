@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Download } from "lucide-react";
+import { X } from "lucide-react";
 import { FaGoogle, FaAward } from "react-icons/fa";
 import { SiOdoo } from "react-icons/si";
 
