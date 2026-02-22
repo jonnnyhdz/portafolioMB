@@ -1,6 +1,7 @@
 import Navbar from "./components/layout/Navbar";
 import Home from "./pages/Home";
 import Footer from "./components/layout/Footer";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Home />
       </div>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
